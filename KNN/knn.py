@@ -1,6 +1,3 @@
-
-
-
 import numpy as np
 from collections import Counter
 
@@ -46,12 +43,9 @@ class KNN:
         #raise NotImplementedError        
         distances = np.apply_along_axis(self.distance_function, 1, self.train_samples[0], np.array(point))   
         if self.k == 1:
-            #print(distances,self.k)
-            #print(self.train_samples[1], self.k)
             return [np.squeeze(self.train_samples[1][np.argmin(distances)]).astype(dtype="int")]
         else:
-            sorted_dist = np.squeeze(np.argsort(distances))[:self.k]
-            #print(np.squeeze(self.train_samples[1][sorted_dist]).tolist(), self.k)            
+            sorted_dist = np.squeeze(np.argsort(distances))[:self.k]        
             return np.squeeze(self.train_samples[1][sorted_dist]).astype(dtype="int").tolist()
 		
 	# TODO: predict labels of a list of points

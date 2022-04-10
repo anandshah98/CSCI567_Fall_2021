@@ -1,4 +1,3 @@
-
 import numpy as np
 from knn import KNN
 
@@ -239,6 +238,6 @@ class MinMaxScaler:
         diff = maxi - mini
         diff[diff == 0] = 1
         features_np[:, mini == maxi] == 0
-        #features_np[:, np.squeeze(mini != maxi)] = ((features_np - mini)[:, np.squeeze(mini != maxi)]/(maxi-mini)[:, np.squeeze(mini != maxi)])        
+(mini != maxi)])        
         features_np = (features_np - mini)/diff.reshape(1, diff.shape[0])
         return features_np.tolist()
